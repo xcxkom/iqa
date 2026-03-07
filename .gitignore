@@ -11,7 +11,13 @@ wheels/
 .vscode
 
 # Stats
-数据集/
-datasets/
-stats/
+/数据集/
+/datasets/
+/stats/
 /models/
+
+# logs
+logs/
+
+# notebooks
+*.ipynb

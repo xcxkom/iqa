@@ -1,0 +1,23 @@
+# 基础配置
+device: cuda
+
+img_dir: ./datasets/raw/512x384
+indicators_path: ./datasets/raw/koniq10k_indicators.csv
+scores_path: ./datasets/raw/koniq10k_scores_and_distributions.csv
+
+save_dir: ./models
+log_dir: ./logs
+
+
+# 模型配置
+model: df_iqa_cnn
+mode: train
+
+
+# 训练配置
+seed: 42
+num_workers: 4
+
+lr: 0.001
+batch_size: 4
+epochs: 10
