@@ -1,23 +1,32 @@
 # 基础配置
 device: cuda
 
-img_dir: ./datasets/raw/512x384
-indicators_path: ./datasets/raw/koniq10k_indicators.csv
-scores_path: ./datasets/raw/koniq10k_scores_and_distributions.csv
-
 save_dir: ./models
 log_dir: ./logs
 
 
+# 数据集配置
+koniq10k_img_dir: ./datasets/raw/koniq10k/512x384
+koniq10k_indicators_path: ./datasets/raw/koniq10k/koniq10k_indicators.csv
+koniq10k_scores_path: ./datasets/raw/koniq10k/koniq10k_scores_and_distributions.csv
+
+livec_img_dir: ./datasets/raw/livec/images
+livec_scores_path: ./datasets/raw/livec/scores.csv
+
+
 # 模型配置
 model: df_iqa_cnn
-mode: train
+mode: test
 
 
 # 训练配置
 seed: 42
 num_workers: 4
 
-lr: 0.001
+lr: 0.0001
 batch_size: 4
 epochs: 10
+
+
+# 测试配置
+models_dir: ./models/df_iqa_cnn/20260308_103213

@@ -45,15 +45,18 @@ if __name__ == "__main__":
     if model_name == "df_iqa_cnn":
         module = df_iqa_cnn
     else:
-        logger.error("模型未找到：{model_name}")
+        logger.error(f"模型未找到：{model_name}")
         exit(1)
 
-    save_dir = config["save_dir"]
-    os.makedirs(save_dir, exist_ok=True)
-    save_path = os.path.join(save_dir, model_name, PROGRAM_START_TIME.strftime("%Y%m%d_%H%M%S"))
-    logger.info(f"模型保存：{save_path}/ \n")
-
     if model_mode == "train":
+        save_dir = config["save_dir"]
+        os.makedirs(save_dir, exist_ok=True)
+        save_path = os.path.join(save_dir, model_name, PROGRAM_START_TIME.strftime("%Y%m%d_%H%M%S"))
+        logger.info(f"模型保存：{save_path}/ \n")
         module.train(config, logger, save_path)
+    elif model_mode == "test":
+        models_dir = config["models_dir"]
+        logger.info(f"加载模型：{models_dir} \n")
+        module.test(models_dir, config, logger)
     else:
         logger.error(f"未知的模式：{model_mode} 可选模式：train, test")
